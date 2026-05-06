@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live Monitoring</title>
+  <meta http-equiv="refresh" content="5">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <h2>CyberGuard</h2>
+    <a href="/">Dashboard</a>
+    <a class="active" href="/alerts">Live Monitoring</a>
+  </aside>
+
+  <main class="main">
+    <h1>Live Activity Summary</h1>
+    <p class="subtitle">Near real-time monitoring</p>
+
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Protocol</th>
+            <th>Activity</th>
+            <th>Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for a in alerts %}
+          <tr>
+            <td>{{ a.created_at }}</td>
+            <td>{{ a.proto }}</td>
+            <td>{{ a.prediction }}</td>
+            {% if a.prediction == 'Threat' %}
+              <td class="high">High</td>
+            {% else %}
+              <td class="low">Low</td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CyberGuard | Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <h2>CyberGuard</h2>
+    <a class="active" href="/">Dashboard</a>
+    <a href="/alerts">Live Monitoring</a>
+  </aside>
+
+  <main class="main">
+    <h1>Network Threat Dashboard</h1>
+    <p class="subtitle">Analyze basic network activity</p>
+
+    <div class="card">
+      <form action="/predict" method="POST">
+        <div class="grid">
+          <input type="number" name="duration" placeholder="Duration (seconds)" required>
+          <input type="number" name="src_bytes" placeholder="Source Bytes" required>
+          <input type="number" name="dst_bytes" placeholder="Destination Bytes" required>
+
+          <select name="protocol_type">
+            <option value="0">TCP</option>
+            <option value="1">UDP</option>
+            <option value="2">ICMP</option>
+          </select>
+
+          <input type="number" name="src_port" placeholder="Source Port">
+          <input type="number" name="dst_port" placeholder="Destination Port">
+        </div>
+
+        <button class="btn">Analyze Traffic</button>
+      </form>
+    </div>
+
+    <div class="status">
+  <span class="ok">UI Ready</span>
+  <span class="ok">Model Active</span>
+  <span class="ok">Alerts Enabled</span>
+  </div>
+
+
+  </main>
+</div>
+
+</body>
+</html>

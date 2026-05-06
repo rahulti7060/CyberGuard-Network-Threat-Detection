@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  padding: 25px;
+  background: #020617;
+  border-right: 1px solid #1e293b;
+}
+
+.sidebar h2 {
+  color: #38bdf8;
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 12px;
+  margin-bottom: 8px;
+  color: #94a3b8;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: #0f172a;
+  color: #38bdf8;
+}
+
+.main {
+  flex: 1;
+  padding: 40px;
+}
+
+.subtitle {
+  color: #94a3b8;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #0f172a;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(56,189,248,0.1);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+input, select {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 14px;
+  background: linear-gradient(135deg,#38bdf8,#0ea5e9);
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  color: #02121f;
+}
+
+.ghost {
+  background: transparent;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+}
+
+.status span {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.ok { background:#064e3b; color:#22c55e; }
+.warn { background:#78350f; color:#facc15; }
+.danger { background:#7f1d1d; color:#ef4444; }
+
+.result-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-box {
+  background: #020617;
+  padding: 25px;
+  border-radius: 14px;
+  color: #38bdf8;
+  text-align: center;
+}
+
+.note {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.low { color:#22c55e; }
+.high { color:#ef4444; }

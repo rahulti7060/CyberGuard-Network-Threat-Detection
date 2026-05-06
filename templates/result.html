@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CyberGuard | Result</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>CyberGuard</h2>
+    <a href="/">Dashboard</a>
+    <a href="/alerts">Live Monitoring</a>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+    <h1>Threat Analysis Result</h1>
+
+    <div class="card">
+      <div class="result-grid">
+
+        <!-- INPUT DETAILS -->
+        <div class="details">
+          <p><strong>Duration:</strong> {{ duration }} seconds</p>
+          <p><strong>Source Bytes:</strong> {{ src_bytes }}</p>
+          <p><strong>Destination Bytes:</strong> {{ dst_bytes }}</p>
+          <p><strong>Protocol:</strong>
+            {% if protocol_type == 0 %}
+              TCP
+            {% elif protocol_type == 1 %}
+              UDP
+            {% elif protocol_type == 2 %}
+              ICMP
+            {% else %}
+              Unknown
+            {% endif %}
+          </p>
+        </div>
+
+        <!-- RESULT BOX -->
+        <div class="result-box">
+          <h2>Prediction Result</h2>
+
+          <p><strong>Status:</strong>
+            {% if prediction == "Threat" %}
+              <span style="color:#ff4d4d;">Threat Detected</span>
+            {% else %}
+              <span style="color:#2ecc71;">Normal Traffic</span>
+            {% endif %}
+          </p>
+
+          {% if score %}
+          <p>
+            <strong>Confidence:</strong>
+            {{ (score * 100) | round(2) }}%
+          </p>
+          {% endif %}
+        </div>
+
+      </div>
+
+      <a href="/" class="btn ghost">Back to Dashboard</a>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

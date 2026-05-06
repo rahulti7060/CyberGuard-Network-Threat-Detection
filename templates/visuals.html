@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Model Visualizations</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>📊 Model Visualizations</h2>
+    <h3>Confusion Matrix</h3>
+    <img src="{{ url_for('static', filename=conf_matrix_img) }}" width="450">
+    <h3>Feature Importance</h3>
+    <img src="{{ url_for('static', filename=feature_img) }}" width="450">
+    <br><br>
+    <a href="/">🔙 Back to Home</a>
+  </div>
+</body>
+</html>
